@@ -146,3 +146,37 @@ body {
     z-index: 1;
     top: 0;
 }
+.topNav{
+    position: fixed;
+    top: 20px;
+    right: 40px;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.searchBar{
+    width: 100%;
+    padding: 0.5rem 2.5rem 0.5rem 1rem;
+    border: none;
+    background-color: var(--linkActiveColor);
+    color: white;
+}
+.searchContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--linkActiveColor);
+    padding: 0 1.25rem;
+    border: 2px solid var(--textColor);
+    border-radius: 10px;
+}
+.profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--textColor);
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+}
