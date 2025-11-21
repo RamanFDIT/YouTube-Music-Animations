@@ -1,0 +1,148 @@
+:root {
+    --primaryColor: #ff0000;
+    --backgroundColor: #000000;
+    --textColor: #ffffff;
+    --linkActiveColor: #2d2d2d;
+    --font: 'Montserrat Alternates', sans-serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font);
+}
+body {
+    background-color: var(--backgroundColor);
+    color: var(--textColor);
+}
+.onboarding{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.playerControls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+.playerProgress {
+    width: 60rem;
+    height: 0.625rem;
+    background-color: var(--textColor);
+    border-radius: 10px;
+}
+.progressBar {
+    width: 20%;
+    height: 100%;
+    background-color: var(--primaryColor);
+    border-radius: 10px;
+}
+.progressCircle {
+    width: 1.25rem;
+    height: 1.25rem;
+    background-color: var(--primaryColor);
+    border-radius: 50%;
+    position: relative;
+    top: -0.9rem;
+    left: 19%;
+}
+.logoBuild {
+    width: 8.5785rem;
+    height: 8.5785rem;
+    background-color: var(--primaryColor);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-200px);
+    opacity: 0;
+}
+.logoStyle{
+    width: 6.5rem;
+    height: 6.5rem;
+    border-radius: 50%;
+    border: 2px solid var(--textColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.startButton{
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--linkActiveColor);
+    color: var(--textColor);
+    font-size: 1.25rem;
+    cursor: pointer;
+    transform: translateY(200px);
+    opacity: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.startButton:hover{
+    box-shadow: 0 0 20px var(--linkActiveColor);
+    transform: translateY(200px) scale(1.1);
+}
+
+
+
+#featuredSection {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+.navigation{
+    position: fixed;
+    z-index: 10;
+    left: 40px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+}
+.navLinksContainer{
+    display: flex;
+    gap: 60px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    position: relative;
+}
+.navLinks{
+    width: 4.6875rem;
+    height: 5rem;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 10px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border-radius: 10px;
+    position: relative;
+    z-index: 5;
+}
+.linksDes{
+    font-weight: 600;
+}
+.activeIndicator{
+    width: 4.6875rem;
+    height: 5rem;
+    border-radius: 10px;
+    background-color: var(--linkActiveColor);
+    box-shadow: 0 0 5px var(--linkActiveColor);
+    position: absolute;
+    z-index: 1;
+    top: 0;
+}
