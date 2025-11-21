@@ -1,114 +1,47 @@
-gsap.to(
-    ".progressCircle",
-    {
-        x: 760,
-        duration: 2,
-    }
-);
-gsap.to(
-    ".progressBar",
-    {
-        width: "100%",
-        duration: 2,
-        onComplete: () => {
-            gsap.to(
-                ".playerProgress, .controlIconHide",
-                {
-                    opacity: 0,
-                    duration: 1,
-                    onComplete: () => {
-                        const playerControls = document.querySelector(".playerControls");
-                        const playerProgress = document.querySelector(".playerProgress");
-                        playerControls.style.display = "none";
-                        playerProgress.style.display = "none";
-                    }
-                }
-            );
-            gsap.to(
-                ".logoBuild",
-                {
-                    y: 0,
-                    opacity: 1,
-                    duration: 1,
-                    onComplete: () => {
-                        gsap.to(
-                            ".logoBuild",
-                            {
-                                width: "100%",
-                                height: "100vh",
-                                borderRadius: 0,
-                                duration: 1,
-                                onComplete: () => {
-                                    gsap.to(
-                                        ".startButton",
-                                        {
-                                            y: -100,
-                                            opacity: 1,
-                                            duration: 1,
-                                        }
-                                    );
-                                }
-                            }
-                        );
-                    }
-                }
-            );
-        }
-    }
-);
+const tl = gsap.timeline();
+
+tl.to(".progressCircle", { x: 760, duration: 2 })
+  .to(".progressBar", { width: "100%", duration: 2 }, "<")
+  .to(".playerProgress, .controlIconHide", {
+      opacity: 0,
+      duration: 1,
+      onComplete: () => {
+          document.querySelector(".playerControls").style.display = "none";
+          document.querySelector(".playerProgress").style.display = "none";
+      }
+  })
+  .to(".logoBuild", { y: 0, opacity: 1, duration: 1 })
+  .to(".logoBuild", { width: "100%", height: "100vh", borderRadius: 0, duration: 1 })
+  .to(".startButton", { y: -100, opacity: 1, duration: 1 });
 const startButton = document.querySelector(".startButton");
 startButton.addEventListener("click", () => {
-    gsap.from(
-        ".startButton",
-        {
-            opacity: 0,
-            duration: 0.1,
-            onComplete: () => {
-                startButton.style.display = "none";
-            }
-        }
-    );
-    gsap.to(
-        ".logoBuild",
-        {
-           width: "8.5785rem",
-           height: "8.5785rem",
-           duration: 1,
-           borderRadius: "50%",
-           onComplete: () => {
-                const logoBuild =  document.querySelector(".logoBuild");
-                logoBuild.style.position = "absolute";
-                const playSmall = document.querySelector(".controlIcon");
-                playSmall.src = "Images/playSmall.svg";
-                gsap.to(
-                    ".logoStyle",
-                    {
-                        width: "2.5785rem",
-                        height: "2.5785rem",
-                    }
-                );
-                gsap.to(
-                    ".logoBuild",
-                    {
-                        width: "3.5785rem",
-                        height: "3.5785rem",
-                        top: "20px",
-                        left: "40px",
-                        duration: 1,
-                        onComplete: () => {
-                            gsap.to(
-                                ".navigation", 
-                                {
-                                    opacity: 1,
-                                    duration: 1,
-                                }
-                            );
-                        }
-                    }
-                );
-           }
-        }    
-    );
+    const tl2 = gsap.timeline();
+
+    tl2.to(".startButton", { 
+        opacity: 0, 
+        duration: 0.1, 
+        onComplete: () => { startButton.style.display = "none"; } 
+    })
+    .to(".logoBuild", {
+        width: "8.5785rem",
+        height: "8.5785rem",
+        duration: 1,
+        borderRadius: "50%"
+    })
+    .call(() => {
+        const logoBuild = document.querySelector(".logoBuild");
+        logoBuild.style.position = "absolute";
+        document.querySelector(".controlIcon").src = "Images/playSmall.svg";
+    })
+    .to(".logoStyle", { width: "2.5785rem", height: "2.5785rem" }, "move")
+    .to(".logoBuild", {
+        width: "3.5785rem",
+        height: "3.5785rem",
+        top: "20px",
+        left: "40px",
+        duration: 1
+    }, "move")
+    .to(".navigation", { opacity: 1, duration: 1 });
 });
 const navLinks = document.querySelectorAll(".navLinks");
 navLinks.forEach((link, index) => {
