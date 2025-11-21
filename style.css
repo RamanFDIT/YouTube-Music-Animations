@@ -149,11 +149,13 @@ body {
 .topNav{
     position: fixed;
     top: 20px;
-    right: 40px;
     z-index: 10;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    width: 100%;
+    padding: 0 40px;
+    display: none;
 }
 .searchBar{
     width: 100%;
@@ -162,14 +164,18 @@ body {
     background-color: var(--linkActiveColor);
     color: white;
 }
+.searchBar:active, .searchBar:focus{
+    outline: none;
+}
 .searchContainer{
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--linkActiveColor);
-    padding: 0 1.25rem;
+    padding: 0.25rem 1rem;
     border: 2px solid var(--textColor);
     border-radius: 10px;
+    width: 39rem;
 }
 .profile{
     display: flex;
@@ -179,4 +185,24 @@ body {
     border-radius: 50%;
     width: 2.5rem;
     height: 2.5rem;
+}
+.searchActive{
+    background-color: var(--linkActiveColor);
+    padding: 0.5rem 1.8rem;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 2px solid var(--textColor);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    display: none;
+}
+.songNames{
+    transition: 0.3s ease;
+}
+.songNames:hover{
+    cursor: pointer;
+    background-color: var(--backgroundColor);
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px;
 }

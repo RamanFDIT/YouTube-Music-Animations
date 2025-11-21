@@ -125,3 +125,19 @@ navLinks.forEach((link, index) => {
         );
     });
 });
+const searchBar = document.querySelector(".searchContainer");
+const searchActive = document.querySelector(".searchActive");
+searchBar.addEventListener("click", () => {
+    searchActive.style.display = "flex";
+    searchBar.style.borderBottomLeftRadius = "0";
+    searchBar.style.borderBottomRightRadius = "0";
+    searchBar.style.borderBottom = "none";
+    searchActive.style.borderTop = "none";
+    gsap.to(
+        ".searchActive",
+        {
+            opacity: 1,
+            duration: 0.3,
+        }
+    );
+});
