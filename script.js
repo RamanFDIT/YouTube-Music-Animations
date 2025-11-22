@@ -61,11 +61,13 @@ navLinks.forEach((link, index) => {
 const searchBar = document.querySelector(".searchContainer");
 const searchActive = document.querySelector(".searchActive");
 searchBar.addEventListener("click", () => {
+    const searchIcon = document.querySelector(".searchIcon");
     searchActive.style.display = "flex";
     searchBar.style.borderBottomLeftRadius = "0";
     searchBar.style.borderBottomRightRadius = "0";
     searchBar.style.borderBottom = "none";
     searchActive.style.borderTop = "none";
+    searchIcon.src = "Images/cross.svg";
     gsap.to(
         ".searchActive",
         {
