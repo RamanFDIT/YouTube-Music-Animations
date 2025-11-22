@@ -1,31 +1,31 @@
 const tl = gsap.timeline();
 
-tl.to(".progressCircle", { x: 760, duration: 2 })
-  .to(".progressBar", { width: "100%", duration: 2 }, "<")
+tl.to(".progressCircle", { x: 760, duration: 1 })
+  .to(".progressBar", { width: "100%", duration: 1 }, "<")
   .to(".playerProgress, .controlIconHide", {
       opacity: 0,
-      duration: 1,
+      duration: 0.3,
       onComplete: () => {
           document.querySelector(".playerControls").style.display = "none";
           document.querySelector(".playerProgress").style.display = "none";
       }
   })
-  .to(".logoBuild", { y: 0, opacity: 1, duration: 1 })
-  .to(".logoBuild", { width: "100%", height: "100vh", borderRadius: 0, duration: 1 })
-  .to(".startButton", { y: -100, opacity: 1, duration: 1 });
+  .to(".logoBuild", { y: 0, opacity: 1, duration: 0.5 })
+  .to(".logoBuild", { width: "100%", height: "100vh", borderRadius: 0, duration: 0.5 })
+  .to(".startButton", { y: -100, opacity: 1, duration: 0.6 });
 const startButton = document.querySelector(".startButton");
 startButton.addEventListener("click", () => {
     const tl2 = gsap.timeline();
 
     tl2.to(".startButton", { 
         opacity: 0, 
-        duration: 0.1, 
+        duration: 0.01, 
         onComplete: () => { startButton.style.display = "none"; } 
     })
     .to(".logoBuild", {
         width: "8.5785rem",
         height: "8.5785rem",
-        duration: 1,
+        duration: 0.7,
         borderRadius: "50%"
     })
     .call(() => {
@@ -39,9 +39,9 @@ startButton.addEventListener("click", () => {
         height: "3.5785rem",
         top: "20px",
         left: "40px",
-        duration: 1
+        duration: 0.7,
     }, "move")
-    .to(".navigation", { opacity: 1, duration: 1 });
+    .to(".navigation, .topNav", { opacity: 1, duration: 0.7});
 });
 const navLinks = document.querySelectorAll(".navLinks");
 navLinks.forEach((link, index) => {
