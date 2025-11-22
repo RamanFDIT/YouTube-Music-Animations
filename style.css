@@ -163,6 +163,7 @@ body {
     border: none;
     background-color: var(--linkActiveColor);
     color: white;
+    cursor: pointer;
 }
 .searchBar:active, .searchBar:focus{
     outline: none;
@@ -176,8 +177,7 @@ body {
     border: 2px solid var(--textColor);
     border-radius: 10px;
     width: 39rem;
-    transition: 0.3s ease;
-
+    cursor: pointer;
 }
 .profile{
     display: flex;
@@ -198,8 +198,7 @@ body {
     flex-direction: column;
     gap: 1rem;
     display: none;
-    transition: 0.3s ease;
-
+    animation: dropinAnimation 0.3s ease-in;
 }
 .songNames{
     transition: 0.3s ease;
@@ -210,11 +209,17 @@ body {
     padding: 0.2rem 0.5rem;
     border-radius: 5px;
 }
-.searchActiveTransition{
-    display: flex;
-    flex-direction: column;
-    transition: 0.3s ease;
-}
 .searchIcon{
     cursor: pointer;
+}
+@keyframes dropinAnimation {
+    0% { transform: scaleY(0); opacity: 0; transform-origin: top; }
+    100% { transform: scaleY(1); opacity: 1; transform-origin: top; }
+}
+@keyframes dropinAnimationReverse {
+    0% { transform: scaleY(1); opacity: 1; transform-origin: top; }
+    100% { transform: scaleY(0); opacity: 0; transform-origin: top; }
+}
+.isOpen{
+    display: flex;
 }

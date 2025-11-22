@@ -11,7 +11,7 @@ tl.to(".progressCircle", { x: 760, duration: 1 })
       }
   })
   .to(".logoBuild", { y: 0, opacity: 1, duration: 0.5 })
-  .to(".logoBuild", { width: "100%", height: "100vh", borderRadius: 0, duration: 0.5 })
+  .to(".logoBuild", { width: "100%", height: "110vh", borderRadius: 0, duration: 0.5 })
   .to(".startButton", { y: -100, opacity: 1, duration: 0.6 });
 const startButton = document.querySelector(".startButton");
 startButton.addEventListener("click", () => {
@@ -60,19 +60,22 @@ navLinks.forEach((link, index) => {
 });
 const searchBar = document.querySelector(".searchContainer");
 const searchActive = document.querySelector(".searchActive");
+const searchIcon = document.querySelector(".searchIcon");
+const topNav = document.querySelector(".topNav");
+
 searchBar.addEventListener("click", () => {
-    const searchIcon = document.querySelector(".searchIcon");
-    searchActive.style.display = "flex";
-    searchBar.style.borderBottomLeftRadius = "0";
-    searchBar.style.borderBottomRightRadius = "0";
-    searchBar.style.borderBottom = "none";
-    searchActive.style.borderTop = "none";
-    searchIcon.src = "Images/cross.svg";
-    gsap.to(
-        ".searchActive",
-        {
-            opacity: 1,
-            duration: 0.3,
-        }
-    );
+    if(!searchActive.classList.contains("isOpen")){
+        searchActive.classList.add("isOpen");
+        searchIcon.src = "Images/cross.svg";
+        topNav.style.alignItems = "flex-start";
+        searchBar.style.borderRadius = "10px 10px 0 0";
+        searchBar.style.borderBottom = "none";
+    }
+    else{
+        searchActive.classList.remove("isOpen");
+        searchIcon.src = "Images/search.svg";
+        topNav.style.alignItems = "center";
+        searchBar.style.borderRadius = "10px";
+        searchBar.style.borderBottom = "2px solid #fff";
+    }
 });
