@@ -41,7 +41,10 @@ startButton.addEventListener("click", () => {
         left: "40px",
         duration: 0.7,
     }, "move")
-    .to(".navigation, .topNav", { opacity: 1, duration: 0.7});
+    .to(".navigation, .topNav, .songSection", { opacity: 1, duration: 0.7, onComplete: () => {
+        document.querySelector(".onboarding").style.height = "10vh";
+        document.querySelector(".logoBuild").style.position = "fixed";
+    }});
 });
 const navLinks = document.querySelectorAll(".navLinks");
 navLinks.forEach((link, index) => {
