@@ -52,7 +52,6 @@ startButton.addEventListener("click", () => {
 const navLinks = document.querySelectorAll(".navLinks");
 navLinks.forEach((link, index) => {
     link.addEventListener("click", () => {
-        // Logic written using AI
         const yPosition = index * 140;
         gsap.to(
             ".activeIndicator",
