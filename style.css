@@ -236,6 +236,9 @@ body {
     background-image: url('Images/song1.png');
     background-size: cover;
     background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .songsContainer{
     padding: 0 40px 0 0;
@@ -397,7 +400,7 @@ body {
     opacity: 0;
 
 }
-.links{
+.links {
     color: var(--textColor);
     text-decoration: none;
     font-weight: 500;
