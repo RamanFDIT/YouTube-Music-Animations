@@ -40,8 +40,11 @@ startButton.addEventListener("click", () => {
         top: "20px",
         left: "40px",
         duration: 0.7,
+        onComplete: () => {
+            document.querySelector(".songPlayer").style.display = "flex";
+        }
     }, "move")
-    .to(".navigation, .topNav, .songSection", { opacity: 1, duration: 0.7, onComplete: () => {
+    .to(".navigation, .topNav, .songPlayer , .songSection", { opacity: 1, duration: 0.7, onComplete: () => {
         document.querySelector(".onboarding").style.height = "10vh";
         document.querySelector(".logoBuild").style.position = "fixed";
     }});
@@ -81,4 +84,28 @@ searchBar.addEventListener("click", () => {
         searchBar.style.borderRadius = "10px";
         searchBar.style.borderBottom = "2px solid #fff";
     }
+});
+
+const songPlayer = document.querySelector(".songPlayer");
+songPlayer.addEventListener("click", () => {
+    gsap.to(".songPlayer", {
+        width: "90%",
+        duration: 0.3
+    });
+    gsap.to(".songLinks", {
+        opacity: 1,
+        duration: 0.3
+    });
+});
+const closeButton = document.querySelector(".close");
+closeButton.addEventListener("click", (event) => {
+    event.stopPropagation();
+    gsap.to(".songPlayer", {
+        width: "20%",
+        duration: 0.3
+    });
+    gsap.to(".songLinks", {
+        opacity: 0,
+        duration: 0.3
+    });
 });
